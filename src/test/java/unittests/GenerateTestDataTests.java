@@ -49,7 +49,6 @@ public class GenerateTestDataTests {
         Date date = dateFormat.parse(checkInDate);
         String formattedDate = dateFormat.format(date);
         Assert.assertEquals(checkInDate, formattedDate, "Check-in date should be formatted as yyyy-MM-dd");
-        System.out.println(checkInDate);
     }
     @Test
     public void testCheckOUtDateIsFormattedCorrectly() throws ParseException {
@@ -57,7 +56,6 @@ public class GenerateTestDataTests {
         Date date =  dateFormat.parse(checkOutDate);
         String formattedDate = dateFormat.format(date);
         Assert.assertEquals(checkOutDate, formattedDate,"Check-out date should be formatted as yyyy-MM-dd");
-        System.out.println(checkOutDate);
     }
 
 }
