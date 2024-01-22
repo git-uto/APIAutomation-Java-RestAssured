@@ -9,38 +9,42 @@ import java.util.concurrent.TimeUnit;
 public class GenerateTestData {
 
     public static class CreateBookingData {
-        private final Faker faker;
-        private final SimpleDateFormat dateFormat;
+        private static Faker faker = new Faker();
+        private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 
         public CreateBookingData() {
-            dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            faker = new Faker();
+            //dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            //faker = new Faker();
         }
 
-        public String firstName() {
+        public static String firstName() {
             return faker.name().firstName();
         }
+        public static int totalPrice()
+        {
+            return faker.number().randomDigit();
+        }
 
-        public String lastName() {
+        public static String lastName() {
             return faker.name().lastName();
         }
 
-        public boolean isDepositPaid() {
+        public static boolean isDepositPaid() {
             return faker.bool().bool(); // Returns Random True or False.
         }
 
-        public String getCheckingDate() {
+        public static String getCheckingDate() {
             Date date = faker.date().future(365, TimeUnit.DAYS);
             return dateFormat.format(date);
         }
 
-        public String getCheckOUtDate() {
+        public static String getCheckOUtDate() {
             Date date = faker.date().future(365, TimeUnit.DAYS);
             return dateFormat.format(date);
         }
 
-        public String additionalDetails() {
+        public static String additionalDetails() {
             return faker.lorem().sentence();
         }
     }
